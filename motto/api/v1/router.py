@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-router = APIRouter()
+router = APIRouter(prefix="/api/v1")
 
 from motto.api.v1.endpoints.users import router as users_router
 

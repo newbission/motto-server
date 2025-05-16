@@ -1,21 +1,16 @@
 from fastapi import APIRouter, HTTPException, Request
 from motto.models.user import User
 
-router = APIRouter()
+router = APIRouter(prefix="/users")
 
 user_list = []
 
-@router.get("/")
-def test(request: Request):
-    print(request.headers.get("user-agent"))
-    return request.headers.get("user-agent") 
-
-@router.get("/users")
+@router.get("")
 async def access_users(a: int = 0, b: str = "test b"):
     return {"a": a, "b": b}
 
 
-@router.get("/users/{name}")
+@router.get("/{name}")
 async def user_info(name):
     return name
 
